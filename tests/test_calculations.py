@@ -1,4 +1,5 @@
-from geo_calculator.calculations import find_average
+from geo_calculator.calculations import find_average, gardners_equation
+import pytest
 
 
 def test_length_of_string() -> None:
@@ -9,3 +10,11 @@ def test_length_of_string() -> None:
 def test_find_average_of_list() -> None:
     liste = [1, 2, 3]
     assert find_average(liste) == 2
+
+
+def test_gardners_equation():
+    velocity = 2000  # m/s
+    expected_density = 2.0730949  # g/cm3
+
+    # By default, approx considers numbers within a relative tolerance of 1e-6
+    assert gardners_equation(velocity) == pytest.approx(expected_density, rel=1e-7)
