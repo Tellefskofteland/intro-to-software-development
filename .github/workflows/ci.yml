@@ -25,7 +25,7 @@ jobs:
       run: |
         pytest
     - name: Check code formatting
-          run: |
+      run: |
             black --check .
     
 
